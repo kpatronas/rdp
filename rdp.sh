@@ -32,3 +32,5 @@ PORT=$(( ( RANDOM % 30000 ) + 10000 ))
 nohup bash -c """ssh -L $PORT:$1:3389 $GATEWAY -S /tmp/.rdp-$1 -M -fN rpd-$1 && \
                  xfreerdp /dynamic-resolution /cert-ignore /v:localhost:$PORT /u:"$USERNAME" /p:"$PASSWORD" /title:"$1" /bpp:15 /d:"$DOMAIN" /timeout:30000
                  ssh -S /tmp/.rdp-$1 -O exit rdp-$1""" 2>/dev/null &
+
+                 
